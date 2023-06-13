@@ -23,8 +23,8 @@ module.exports.livreurNameDELETE = function livreurNameDELETE (req, res, next) {
     });
 };
 
-module.exports.livreurNameGET = function livreurNameGET (req, res, next, email, nom, prenom) {
-  Livreur.livreurNameGET(email, nom, prenom)
+module.exports.livreurNameGET = function livreurNameGET (req, res, next, email, name, prenom) {
+  Livreur.livreurNameGET(email, name, prenom)
     .then(function (response) {
       utils.writeJson(res, response);
     })

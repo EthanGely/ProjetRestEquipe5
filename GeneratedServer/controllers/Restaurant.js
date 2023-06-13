@@ -23,8 +23,8 @@ module.exports.restaurantNameDELETE = function restaurantNameDELETE (req, res, n
     });
 };
 
-module.exports.restaurantNameGET = function restaurantNameGET (req, res, next, nom, numero) {
-  Restaurant.restaurantNameGET(nom, numero)
+module.exports.restaurantNameGET = function restaurantNameGET (req, res, next, name, numero) {
+  Restaurant.restaurantNameGET(name, numero)
     .then(function (response) {
       utils.writeJson(res, response);
     })

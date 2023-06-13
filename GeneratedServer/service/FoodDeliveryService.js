@@ -1,13 +1,13 @@
 'use strict';
 
+const foodPlateforms = require('../foodPlateforms.json');
+
 
 /**
  * List all food delivery platform
  *
  * no response value expected for this operation
  **/
-
-const foodPlateforms = require('../foodPlateforms.json');
 exports.food_deliveryGET = function() {
   return new Promise(function(resolve, reject) {
     const data = {
@@ -52,7 +52,6 @@ exports.food_deliveryGET = function() {
     };
 
     resolve(data);
-    
   });
 }
 
@@ -72,24 +71,22 @@ exports.food_deliveryNameDELETE = function() {
 /**
  * Get one food delivery platform
  *
- * nom String page of results to return (optional)
+ * name String page of results to return (optional)
  * no response value expected for this operation
  **/
-exports.food_deliveryNameGET = function(nom) {
+exports.food_deliveryNameGET = function(name) {
   return new Promise(function(resolve, reject) {
     console.log(foodPlateforms);
-    const foundItem = foodPlateforms[nom];
+    const foundItem = foodPlateforms[name];
     console.log(foundItem);
     if(foundItem){
       console.log(1);
       resolve(foundItem);
-    
     }else{
       console.log(2);
       resolve(["pas trouvé"]);
-      
+
     }
-    
   });
 }
 

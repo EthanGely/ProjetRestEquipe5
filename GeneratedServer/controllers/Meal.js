@@ -23,8 +23,8 @@ module.exports.mealNameDELETE = function mealNameDELETE (req, res, next) {
     });
 };
 
-module.exports.mealNameGET = function mealNameGET (req, res, next, nom) {
-  Meal.mealNameGET(nom)
+module.exports.mealNameGET = function mealNameGET (req, res, next, name) {
+  Meal.mealNameGET(name)
     .then(function (response) {
       utils.writeJson(res, response);
     })

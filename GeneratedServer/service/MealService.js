@@ -28,10 +28,10 @@ exports.mealNameDELETE = function() {
 /**
  * Get one meal
  *
- * nom String page of results to return (optional)
+ * name String page of results to return (optional)
  * no response value expected for this operation
  **/
-exports.mealNameGET = function(nom) {
+exports.mealNameGET = function(name) {
   return new Promise(function(resolve, reject) {
     resolve();
   });

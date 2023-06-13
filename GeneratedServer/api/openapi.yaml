@@ -43,7 +43,7 @@ paths:
       summary: Get one food delivery platform
       operationId: food_deliveryNameGET
       parameters:
-      - name: nom
+      - name: name
         in: query
         description: page of results to return
         required: false
@@ -117,7 +117,7 @@ paths:
       summary: Get one restaurant
       operationId: restaurantNameGET
       parameters:
-      - name: nom
+      - name: name
         in: query
         required: false
         style: form
@@ -205,7 +205,7 @@ paths:
         explode: true
         schema:
           type: string
-      - name: nom
+      - name: name
         in: query
         required: false
         style: form
@@ -293,7 +293,7 @@ paths:
         explode: true
         schema:
           type: string
-      - name: nom
+      - name: name
         in: query
         required: false
         style: form
@@ -448,7 +448,7 @@ paths:
       summary: Get one meal
       operationId: mealNameGET
       parameters:
-      - name: nom
+      - name: name
         in: query
         description: page of results to return
         required: false
@@ -493,17 +493,17 @@ components:
     food_delivery_body:
       type: object
       properties:
-        nom:
+        name:
           type: string
     food_delivery_name_body:
       type: object
       properties:
-        nom:
+        name:
           type: string
     restaurant_body:
       type: object
       properties:
-        nom:
+        name:
           type: string
         adresse:
           type: string
@@ -521,7 +521,7 @@ components:
     restaurant_name_body:
       type: object
       properties:
-        nom:
+        name:
           type: string
         adresse:
           type: string
@@ -543,7 +543,7 @@ components:
           type: string
         telephone:
           type: string
-        nom:
+        name:
           type: string
         prenom:
           type: string
@@ -554,7 +554,7 @@ components:
           type: string
         telephone:
           type: string
-        nom:
+        name:
           type: string
         prenom:
           type: string
@@ -565,7 +565,7 @@ components:
           type: string
         telephone:
           type: string
-        nom:
+        name:
           type: string
         prenom:
           type: string
@@ -576,7 +576,7 @@ components:
           type: string
         telephone:
           type: string
-        nom:
+        name:
           type: string
         prenom:
           type: string
@@ -601,7 +601,7 @@ components:
     meal_body:
       type: object
       properties:
-        nom:
+        name:
           type: string
         description:
           type: string
@@ -610,7 +610,7 @@ components:
     meal_name_body:
       type: object
       properties:
-        nom:
+        name:
           type: string
         description:
           type: string

@@ -29,11 +29,11 @@ exports.livreurNameDELETE = function() {
  * Get one delivery man
  *
  * email String  (optional)
- * nom String  (optional)
+ * name String  (optional)
  * prenom String page of results to return (optional)
  * no response value expected for this operation
  **/
-exports.livreurNameGET = function(email,nom,prenom) {
+exports.livreurNameGET = function(email,name,prenom) {
   return new Promise(function(resolve, reject) {
     resolve();
   });

@@ -28,11 +28,11 @@ exports.restaurantNameDELETE = function() {
 /**
  * Get one restaurant
  *
- * nom String  (optional)
+ * name String  (optional)
  * numero String page of results to return (optional)
  * no response value expected for this operation
  **/
-exports.restaurantNameGET = function(nom,numero) {
+exports.restaurantNameGET = function(name,numero) {
   return new Promise(function(resolve, reject) {
     resolve();
   });
