@@ -1,0 +1,12 @@
+{
+	"01": {
+		"name": "Le Syfax",
+        "type": "Tacos"
+
+	},
+	"BlaBlaPizza": {
+		"name": "Bla Bla Pizza",
+        "type": "Pizzeria"
+	}
+
+}

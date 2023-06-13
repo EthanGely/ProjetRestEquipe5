@@ -29,10 +29,10 @@ exports.restaurantNameDELETE = function(numero) {
 /**
  * Get one restaurant
  *
- * numero String numero du restaurant
+ * name String nom du restaurant
  * no response value expected for this operation
  **/
-exports.restaurantNameGET = function(numero) {
+exports.restaurantNameGET = function(name) {
   return new Promise(function(resolve, reject) {
     resolve();
   });

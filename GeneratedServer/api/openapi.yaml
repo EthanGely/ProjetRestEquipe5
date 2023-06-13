@@ -126,9 +126,9 @@ paths:
       summary: Get one restaurant
       operationId: restaurantNameGET
       parameters:
-      - name: numero
+      - name: name
         in: path
-        description: numero du restaurant
+        description: nom du restaurant
         required: true
         style: simple
         explode: false

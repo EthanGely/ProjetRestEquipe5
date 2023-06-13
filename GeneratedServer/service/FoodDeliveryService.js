@@ -8,48 +8,48 @@ const foodPlateforms = require('../foodPlateforms.json');
  **/
 exports.food_deliveryGET = function() {
   return new Promise(function(resolve, reject) {
-      const data = {
-          name: "platform de livraison",
-          links: [
-              {
-                  href: '/',
-                  rel: 'self',
-                  method: 'PUT'
-              },
-              {
-                  href: '/Restaurant',
-                  rel: 'restaurants',
-                  method: 'GET'
-              },
-              {
-                  href: `/Restaurant`,
-                  rel: 'restaurants',
-                  methods: 'POST'
-              },
-              {
-                  href: '/Client',
-                  rel: 'clients',
-                  method: 'GET'
-              },
-              {
-                  href: `/Client`,
-                  rel: 'clients',
-                  methods: 'POST'
-              },
-              {
-                  href: '/Livreur',
-                  rel: 'livreurs',
-                  method: 'GET'
-              },
-              {
-                  href: `/Livreur`,
-                  rel: 'livreurs',
-                  methods: 'POST'
-              }
-          ]
-      };
+    const data = {
+      name: "platform de livraison",
+      links: [
+        {
+          href: '/',
+          rel: 'self',
+          method: 'PUT'
+        },
+        {
+          href: '/Restaurant',
+          rel: 'restaurants',
+          method: 'GET'
+        },
+        {
+          href: `/Restaurant`,
+          rel: 'restaurants',
+          methods: 'POST'
+        },
+        {
+          href: '/Client',
+          rel: 'clients',
+          method: 'GET'
+        },
+        {
+          href: `/Client`,
+          rel: 'clients',
+          methods: 'POST'
+        },
+        {
+          href: '/Livreur',
+          rel: 'livreurs',
+          method: 'GET'
+        },
+        {
+          href: `/Livreur`,
+          rel: 'livreurs',
+          methods: 'POST'
+        }
+      ]
+    };
 
-      resolve(data);
+    resolve(data);
   });
 }
 
@@ -75,13 +75,12 @@ exports.food_deliveryNameDELETE = function(name) {
  **/
 exports.food_deliveryNameGET = function(name) {
   return new Promise(function(resolve, reject) {
-      console.log("nom : " + name);
-      const foundItem = foodPlateforms[name];
-      if (foundItem) {
-          resolve(foundItem);
-      } else {
-          resolve(["pas trouvé"]);
-      }
+    const foundItem = foodPlateforms[name];
+    if (foundItem) {
+      resolve(foundItem);
+    } else {
+      resolve(["pas trouvé"]);
+    }
   });
 }
 
