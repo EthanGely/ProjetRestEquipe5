@@ -1,5 +1,6 @@
 'use strict';
-
+const restaurants = require('../restaurants.json');
+const foodPlateforms = require("../foodPlateforms.json");
 
 /**
  * List all restaurants
@@ -16,10 +17,10 @@ exports.restaurantGET = function() {
 /**
  * Delete a restaurant
  *
- * numero String numero du restaurant
+ * name String nom du restaurant
  * no response value expected for this operation
  **/
-exports.restaurantNameDELETE = function(numero) {
+exports.restaurantNameDELETE = function(name) {
   return new Promise(function(resolve, reject) {
     resolve();
   });
@@ -34,7 +35,12 @@ exports.restaurantNameDELETE = function(numero) {
  **/
 exports.restaurantNameGET = function(name) {
   return new Promise(function(resolve, reject) {
-    resolve();
+    const foundItem = restaurants[name];
+    if (foundItem) {
+      resolve(foundItem);
+    } else {
+      resolve(["pas trouvé"]);
+    }
   });
 }
 

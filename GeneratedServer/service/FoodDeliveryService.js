@@ -62,7 +62,13 @@ exports.food_deliveryGET = function() {
  **/
 exports.food_deliveryNameDELETE = function(name) {
   return new Promise(function(resolve, reject) {
-    resolve();
+    const foundItem = foodPlateforms[name];
+    if(foundItem){
+      delete foodPlateforms[name];
+      resolve(name + " à bien était supprimer");
+    }else{
+      resolve("erreur nom de food delivery invalide");
+    }
   });
 }
 

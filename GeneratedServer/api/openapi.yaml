@@ -163,9 +163,9 @@ paths:
       summary: Delete a restaurant
       operationId: restaurantNameDELETE
       parameters:
-      - name: numero
+      - name: name
         in: path
-        description: numero du restaurant
+        description: nom du restaurant
         required: true
         style: simple
         explode: false
