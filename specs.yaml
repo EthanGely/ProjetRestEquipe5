@@ -1,0 +1,495 @@
+openapi: 3.0.2
+servers:
+  - url: 'http://localhost:8080'
+info:
+  title: Web API to manage food delivery
+  version: 1.0.0
+  description: This is a Web API to manage food delivery establishments.
+  contact:
+    email: ethan.gely@etu.univ-grenoble-alpes.fr
+    name: Ethan
+paths:
+  /food_delivery:
+    get:
+      tags:
+        - food delivery
+      summary: List all food delivery platform
+      responses:
+        '200':
+          description: Successful operation
+    post:
+      tags:
+        - food delivery
+      summary: create a new food delivery platform
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nom:
+                  type: string
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Already exists
+  '/food_delivery/{name}':
+    get:
+      tags:
+        - food delivery
+      summary: Get one food delivery platform
+      parameters:
+        - name: nom
+          schema:
+            type: string
+          in: query
+          description: page of results to return
+          required: false
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: no result found
+    put:
+      tags:
+        - food delivery
+      summary: update a food delivery platform
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nom:
+                  type: string
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Error 400
+    delete:
+      tags:
+        - food delivery
+      summary: delete a food delivery platform
+      responses:
+        '200':
+          description: Successful operation
+  /restaurant:
+    get:
+      tags:
+        - restaurant
+      summary: List all restaurants
+      responses:
+        '200':
+          description: Successful operation
+    post:
+      tags:
+        - restaurant
+      summary: create new restaurant
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nom:
+                  type: string
+                adresse:
+                  type: string
+                numero:
+                  type: string
+                type:
+                  type: string
+                  enum:
+                    ["FAST FOOD", "PIZZA", "EPICERIE", "HALAL", "KEBAB", "BOULANGERIE"]
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Already exists
+  '/restaurant/{name}':
+    get:
+      tags:
+        - restaurant
+      summary: Get one restaurant
+      parameters:
+        - name: nom
+          schema:
+            type: string
+          in: query
+        - name: numero
+          schema:
+            type: string
+          in: query
+          description: page of results to return
+          required: false
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: no result found
+    put:
+      tags:
+        - restaurant
+      summary: update a restaurant
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nom:
+                  type: string
+                adresse:
+                  type: string
+                numero:
+                  type: string
+                type:
+                  type: string
+                  enum:
+                    ["FAST FOOD", "PIZZA", "EPICERIE", "HALAL", "KEBAB", "BOULANGERIE"]
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Error 400
+    delete:
+      tags:
+        - restaurant
+      summary: Delete a restaurant
+      responses:
+        '200':
+          description: Successful operation
+  /client:
+    get:
+      tags:
+        - client
+      summary: List all clients
+      responses:
+        '200':
+          description: Successful operation
+    post:
+      tags:
+        - client
+      summary: create a new client
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                telephone:
+                  type: string
+                nom:
+                  type: string
+                prenom:
+                  type: string
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Already exists
+  '/client/{name}':
+    get:
+      tags:
+        - client
+      summary: Get one client
+      parameters:
+        - name: email
+          schema:
+            type: string
+          in: query
+        - name: nom
+          schema:
+            type: string
+          in: query
+        - name: prenom
+          schema:
+            type: string
+          in: query
+          description: page of results to return
+          required: false
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: no result found
+    put:
+      tags:
+        - client
+      summary: update a client
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                telephone:
+                  type: string
+                nom:
+                  type: string
+                prenom:
+                  type: string
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Error 400
+    delete:
+      tags:
+        - client
+      summary: Delete a client
+      responses:
+        '200':
+          description: Successful operation
+  /livreur:
+    get:
+      tags:
+        - livreur
+      summary: List all delivery men
+      responses:
+        '200':
+          description: Successful operation
+    post:
+      tags:
+        - livreur
+      summary: create a new delivery man
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                telephone:
+                  type: string
+                nom:
+                  type: string
+                prenom:
+                  type: string
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Already exists
+  '/livreur/{name}':
+    get:
+      tags:
+        - livreur
+      summary: Get one delivery man
+      parameters:
+        - name: email
+          schema:
+            type: string
+          in: query
+        - name: nom
+          schema:
+            type: string
+          in: query
+        - name: prenom
+          schema:
+            type: string
+          in: query
+          description: page of results to return
+          required: false
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: no result found
+    put:
+      tags:
+        - livreur
+      summary: update a delivery man
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                telephone:
+                  type: string
+                nom:
+                  type: string
+                prenom:
+                  type: string
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Error 400
+    delete:
+      tags:
+        - livreur
+      summary: Delete a delivery man
+      responses:
+        '200':
+          description: Successful operation
+  /order:
+    get:
+      tags:
+        - order
+      summary: List all orders
+      responses:
+        '200':
+          description: Successful operation
+    post:
+      tags:
+        - order
+      summary: create a new order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                /total:
+                  type: number
+                date:
+                  type: number
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Already exists
+  '/order/{name}':
+    get:
+      tags:
+        - order
+      summary: Get one order
+      parameters:
+        - name: id
+          schema:
+            type: string
+          in: query
+          description: page of results to return
+          required: false
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: no result found
+    put:
+      tags:
+        - order
+      summary: update an order
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  type: string
+                /total:
+                  type: number
+                date:
+                  type: number
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Error 400
+    delete:
+      tags:
+        - order
+      summary: Delete an order
+      responses:
+        '200':
+          description: Successful operation
+  /meal:
+    get:
+      tags:
+        - meal
+      summary: List all meals
+      responses:
+        '200':
+          description: Successful operation
+    post:
+      tags:
+        - meal
+      summary: create a new meal
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nom:
+                  type: string
+                description:
+                  type: string
+                prix:
+                  type: number
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Already exists
+  '/meal/{name}':
+    get:
+      tags:
+        - meal
+      summary: Get one meal
+      parameters:
+        - name: nom
+          schema:
+            type: string
+          in: query
+          description: page of results to return
+          required: false
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: no result found
+    put:
+      tags:
+        - meal
+      summary: update a meal
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                nom:
+                  type: string
+                description:
+                  type: string
+                prix:
+                  type: number
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Error 400
+    delete:
+      tags:
+        - meal
+      summary: Delete a meal
+      responses:
+        '200':
+          description: Successful operation
