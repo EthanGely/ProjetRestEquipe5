@@ -28,7 +28,7 @@ exports.mealNameDELETE = function() {
 /**
  * Get one meal
  *
- * name String page of results to return (optional)
+ * name String page of results to return
  * no response value expected for this operation
  **/
 exports.mealNameGET = function(name) {

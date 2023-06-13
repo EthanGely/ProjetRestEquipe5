@@ -16,9 +16,10 @@ exports.restaurantGET = function() {
 /**
  * Delete a restaurant
  *
+ * numero String numero du restaurant
  * no response value expected for this operation
  **/
-exports.restaurantNameDELETE = function() {
+exports.restaurantNameDELETE = function(numero) {
   return new Promise(function(resolve, reject) {
     resolve();
   });
@@ -28,11 +29,10 @@ exports.restaurantNameDELETE = function() {
 /**
  * Get one restaurant
  *
- * name String  (optional)
- * numero String page of results to return (optional)
+ * numero String numero du restaurant
  * no response value expected for this operation
  **/
-exports.restaurantNameGET = function(name,numero) {
+exports.restaurantNameGET = function(numero) {
   return new Promise(function(resolve, reject) {
     resolve();
   });

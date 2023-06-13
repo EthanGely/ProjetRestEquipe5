@@ -1,7 +1,5 @@
 'use strict';
-
 const foodPlateforms = require('../foodPlateforms.json');
-
 
 /**
  * List all food delivery platform
@@ -10,48 +8,48 @@ const foodPlateforms = require('../foodPlateforms.json');
  **/
 exports.food_deliveryGET = function() {
   return new Promise(function(resolve, reject) {
-    const data = {
-      name: "platform de livraison",
-      links: [
-        {
-          href: '/',
-          rel: 'self',
-          method: 'PUT'
-        },
-        {
-          href: '/Restaurant',
-          rel: 'restaurants',
-          method: 'GET'
-        },
-        {
-          href: `/Restaurant`,
-          rel: 'restaurants',
-          methods: 'POST'
-        },
-        {
-          href: '/Client',
-          rel: 'clients',
-          method: 'GET'
-        },
-        {
-          href: `/Client`,
-          rel: 'clients',
-          methods: 'POST'
-        },
-        {
-          href: '/Livreur',
-          rel: 'livreurs',
-          method: 'GET'
-        },
-        {
-          href: `/Livreur`,
-          rel: 'livreurs',
-          methods: 'POST'
-        }
-      ]
-    };
+      const data = {
+          name: "platform de livraison",
+          links: [
+              {
+                  href: '/',
+                  rel: 'self',
+                  method: 'PUT'
+              },
+              {
+                  href: '/Restaurant',
+                  rel: 'restaurants',
+                  method: 'GET'
+              },
+              {
+                  href: `/Restaurant`,
+                  rel: 'restaurants',
+                  methods: 'POST'
+              },
+              {
+                  href: '/Client',
+                  rel: 'clients',
+                  method: 'GET'
+              },
+              {
+                  href: `/Client`,
+                  rel: 'clients',
+                  methods: 'POST'
+              },
+              {
+                  href: '/Livreur',
+                  rel: 'livreurs',
+                  method: 'GET'
+              },
+              {
+                  href: `/Livreur`,
+                  rel: 'livreurs',
+                  methods: 'POST'
+              }
+          ]
+      };
 
-    resolve(data);
+      resolve(data);
   });
 }
 
@@ -59,9 +57,10 @@ exports.food_deliveryGET = function() {
 /**
  * delete a food delivery platform
  *
+ * name String nom de la plateforme
  * no response value expected for this operation
  **/
-exports.food_deliveryNameDELETE = function() {
+exports.food_deliveryNameDELETE = function(name) {
   return new Promise(function(resolve, reject) {
     resolve();
   });
@@ -71,22 +70,18 @@ exports.food_deliveryNameDELETE = function() {
 /**
  * Get one food delivery platform
  *
- * name String page of results to return (optional)
+ * name String nom de la plateforme
  * no response value expected for this operation
  **/
 exports.food_deliveryNameGET = function(name) {
   return new Promise(function(resolve, reject) {
-    console.log(foodPlateforms);
-    const foundItem = foodPlateforms[name];
-    console.log(foundItem);
-    if(foundItem){
-      console.log(1);
-      resolve(foundItem);
-    }else{
-      console.log(2);
-      resolve(["pas trouvé"]);
-
-    }
+      console.log("nom : " + name);
+      const foundItem = foodPlateforms[name];
+      if (foundItem) {
+          resolve(foundItem);
+      } else {
+          resolve(["pas trouvé"]);
+      }
   });
 }
 

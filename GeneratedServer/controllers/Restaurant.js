@@ -13,8 +13,8 @@ module.exports.restaurantGET = function restaurantGET (req, res, next) {
     });
 };
 
-module.exports.restaurantNameDELETE = function restaurantNameDELETE (req, res, next) {
-  Restaurant.restaurantNameDELETE()
+module.exports.restaurantNameDELETE = function restaurantNameDELETE (req, res, next, numero) {
+  Restaurant.restaurantNameDELETE(numero)
     .then(function (response) {
       utils.writeJson(res, response);
     })
@@ -23,8 +23,8 @@ module.exports.restaurantNameDELETE = function restaurantNameDELETE (req, res, n
     });
 };
 
-module.exports.restaurantNameGET = function restaurantNameGET (req, res, next, name, numero) {
-  Restaurant.restaurantNameGET(name, numero)
+module.exports.restaurantNameGET = function restaurantNameGET (req, res, next, numero) {
+  Restaurant.restaurantNameGET(numero)
     .then(function (response) {
       utils.writeJson(res, response);
     })

@@ -23,8 +23,8 @@ module.exports.clientNameDELETE = function clientNameDELETE (req, res, next) {
     });
 };
 
-module.exports.clientNameGET = function clientNameGET (req, res, next, email, name, prenom) {
-  Client.clientNameGET(email, name, prenom)
+module.exports.clientNameGET = function clientNameGET (req, res, next, email) {
+  Client.clientNameGET(email)
     .then(function (response) {
       utils.writeJson(res, response);
     })

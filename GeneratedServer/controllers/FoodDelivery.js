@@ -13,8 +13,8 @@ module.exports.food_deliveryGET = function food_deliveryGET (req, res, next) {
     });
 };
 
-module.exports.food_deliveryNameDELETE = function food_deliveryNameDELETE (req, res, next) {
-  FoodDelivery.food_deliveryNameDELETE()
+module.exports.food_deliveryNameDELETE = function food_deliveryNameDELETE (req, res, next, name) {
+  FoodDelivery.food_deliveryNameDELETE(name)
     .then(function (response) {
       utils.writeJson(res, response);
     })

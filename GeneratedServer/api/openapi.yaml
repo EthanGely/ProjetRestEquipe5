@@ -44,11 +44,11 @@ paths:
       operationId: food_deliveryNameGET
       parameters:
       - name: name
-        in: query
-        description: page of results to return
-        required: false
-        style: form
-        explode: true
+        in: path
+        description: nom de la plateforme
+        required: true
+        style: simple
+        explode: false
         schema:
           type: string
       responses:
@@ -79,6 +79,15 @@ paths:
       - food delivery
       summary: delete a food delivery platform
       operationId: food_deliveryNameDELETE
+      parameters:
+      - name: name
+        in: path
+        description: nom de la plateforme
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
       responses:
         "200":
           description: Successful operation
@@ -117,19 +126,12 @@ paths:
       summary: Get one restaurant
       operationId: restaurantNameGET
       parameters:
-      - name: name
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
       - name: numero
-        in: query
-        description: page of results to return
-        required: false
-        style: form
-        explode: true
+        in: path
+        description: numero du restaurant
+        required: true
+        style: simple
+        explode: false
         schema:
           type: string
       responses:
@@ -160,6 +162,15 @@ paths:
       - restaurant
       summary: Delete a restaurant
       operationId: restaurantNameDELETE
+      parameters:
+      - name: numero
+        in: path
+        description: numero du restaurant
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
       responses:
         "200":
           description: Successful operation
@@ -199,25 +210,11 @@ paths:
       operationId: clientNameGET
       parameters:
       - name: email
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: name
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: prenom
-        in: query
-        description: page of results to return
-        required: false
-        style: form
-        explode: true
+        in: path
+        description: email du client
+        required: true
+        style: simple
+        explode: false
         schema:
           type: string
       responses:
@@ -287,25 +284,11 @@ paths:
       operationId: livreurNameGET
       parameters:
       - name: email
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: name
-        in: query
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: prenom
-        in: query
-        description: page of results to return
-        required: false
-        style: form
-        explode: true
+        in: path
+        description: email du livreur
+        required: true
+        style: simple
+        explode: false
         schema:
           type: string
       responses:
@@ -375,11 +358,11 @@ paths:
       operationId: orderNameGET
       parameters:
       - name: id
-        in: query
-        description: page of results to return
-        required: false
-        style: form
-        explode: true
+        in: path
+        description: id de la commande
+        required: true
+        style: simple
+        explode: false
         schema:
           type: string
       responses:
@@ -449,11 +432,11 @@ paths:
       operationId: mealNameGET
       parameters:
       - name: name
-        in: query
+        in: path
         description: page of results to return
-        required: false
-        style: form
-        explode: true
+        required: true
+        style: simple
+        explode: false
         schema:
           type: string
       responses:

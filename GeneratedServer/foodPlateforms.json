@@ -1,11 +1,11 @@
 {
 	"Uber_eat": {
-		"nom": "Uber_eat",
+		"name": "Uber_eat",
         "test": "1"
 
 	},
 	"delivroo": {
-		"nom": "delivroo",
+		"name": "delivroo",
         "test": "2"
 	}
 

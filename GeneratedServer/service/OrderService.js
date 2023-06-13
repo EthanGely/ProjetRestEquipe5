@@ -28,7 +28,7 @@ exports.orderNameDELETE = function() {
 /**
  * Get one order
  *
- * id String page of results to return (optional)
+ * id String id de la commande
  * no response value expected for this operation
  **/
 exports.orderNameGET = function(id) {

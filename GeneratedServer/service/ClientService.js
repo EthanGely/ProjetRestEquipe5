@@ -28,12 +28,10 @@ exports.clientNameDELETE = function() {
 /**
  * Get one client
  *
- * email String  (optional)
- * name String  (optional)
- * prenom String page of results to return (optional)
+ * email String email du client
  * no response value expected for this operation
  **/
-exports.clientNameGET = function(email,name,prenom) {
+exports.clientNameGET = function(email) {
   return new Promise(function(resolve, reject) {
     resolve();
   });
