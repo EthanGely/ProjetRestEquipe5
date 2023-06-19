@@ -1,0 +1,969 @@
+openapi: 3.0.2
+info:
+  title: Web API to manage food delivery
+  description: This is a Web API to manage food delivery establishments.
+  contact:
+    name: Ethan
+    email: ethan.gely@etu.univ-grenoble-alpes.fr
+  version: 1.0.0
+servers:
+- url: http://localhost:8080
+paths:
+  /food_delivery:
+    get:
+      tags:
+      - food delivery
+      summary: List all food delivery platform
+      operationId: food_deliveryGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: FoodDelivery
+    post:
+      tags:
+      - food delivery
+      summary: create a new food delivery platform
+      operationId: food_deliveryPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/food_delivery_body'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Already exists
+      x-swagger-router-controller: FoodDelivery
+  /food_delivery/{name}:
+    get:
+      tags:
+      - food delivery
+      summary: Get one food delivery platform
+      operationId: food_deliveryNameGET
+      parameters:
+      - name: name
+        in: path
+        description: nom de la plateforme
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: no result found
+      x-swagger-router-controller: FoodDelivery
+    put:
+      tags:
+      - food delivery
+      summary: update a food delivery platform
+      operationId: food_deliveryNamePUT
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/food_delivery_name_body'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Error 400
+      x-swagger-router-controller: FoodDelivery
+    delete:
+      tags:
+      - food delivery
+      summary: delete a food delivery platform
+      operationId: food_deliveryNameDELETE
+      parameters:
+      - name: name
+        in: path
+        description: nom de la plateforme
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: FoodDelivery
+  /food_delivery/{name}/restaurants:
+    get:
+      tags:
+      - restaurant
+      summary: List all restaurants
+      operationId: food_deliveryNameRestaurantsGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Restaurant
+    post:
+      tags:
+      - restaurant
+      summary: create new restaurant
+      operationId: food_deliveryNameRestaurantsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/name_restaurants_body'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Already exists
+      x-swagger-router-controller: Restaurant
+  /food_delivery/{name}/restaurants/{name}:
+    get:
+      tags:
+      - restaurant
+      summary: Get one restaurant
+      operationId: food_deliveryNameRestaurantsNameGET
+      parameters:
+      - name: name
+        in: path
+        description: nom du restaurant
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: no result found
+      x-swagger-router-controller: Restaurant
+    put:
+      tags:
+      - restaurant
+      summary: update a restaurant
+      operationId: food_deliveryNameRestaurantsNamePUT
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/restaurants_name_body'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Error 400
+      x-swagger-router-controller: Restaurant
+    delete:
+      tags:
+      - restaurant
+      summary: Delete a restaurant
+      operationId: food_deliveryNameRestaurantsNameDELETE
+      parameters:
+      - name: numero
+        in: path
+        description: numero du restaurant
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Restaurant
+  /food_delivery/{name}/clients:
+    get:
+      tags:
+      - client
+      summary: List all clients
+      operationId: food_deliveryNameClientsGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Client
+    post:
+      tags:
+      - client
+      summary: create a new client
+      operationId: food_deliveryNameClientsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/name_clients_body'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Already exists
+      x-swagger-router-controller: Client
+  /food_delivery/{delivery_name}/clients/{client_mail}:
+    get:
+      tags:
+      - client
+      summary: Get one client
+      operationId: food_deliveryDelivery_nameClientsClient_mailGET
+      parameters:
+      - name: email
+        in: path
+        description: email du client
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: no result found
+      x-swagger-router-controller: Client
+    put:
+      tags:
+      - client
+      summary: update a client
+      operationId: food_deliveryDelivery_nameClientsClient_mailPUT
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/clients_client_mail_body'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Error 400
+      x-swagger-router-controller: Client
+    delete:
+      tags:
+      - client
+      summary: Delete a client
+      operationId: food_deliveryDelivery_nameClientsClient_mailDELETE
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Client
+  /food_delivery/{name}/livreurs:
+    get:
+      tags:
+      - livreur
+      summary: List all delivery men
+      operationId: food_deliveryNameLivreursGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Livreur
+    post:
+      tags:
+      - livreur
+      summary: create a new delivery man
+      operationId: food_deliveryNameLivreursPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/name_livreurs_body'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Already exists
+      x-swagger-router-controller: Livreur
+  /food_delivery/{delivery_name}/livreurs/{livreur_mail}:
+    get:
+      tags:
+      - livreur
+      summary: Get one delivery man
+      operationId: food_deliveryDelivery_nameLivreursLivreur_mailGET
+      parameters:
+      - name: email
+        in: path
+        description: email du livreur
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: no result found
+      x-swagger-router-controller: Livreur
+    put:
+      tags:
+      - livreur
+      summary: update a delivery man
+      operationId: food_deliveryDelivery_nameLivreursLivreur_mailPUT
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/livreurs_livreur_mail_body'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Error 400
+      x-swagger-router-controller: Livreur
+    delete:
+      tags:
+      - livreur
+      summary: Delete a delivery man
+      operationId: food_deliveryDelivery_nameLivreursLivreur_mailDELETE
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Livreur
+  /food_delivery/{delivery_name}/clients/{client_mail}/orders:
+    get:
+      tags:
+      - order
+      summary: List all orders
+      operationId: food_deliveryDelivery_nameClientsClient_mailOrdersGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Order
+    post:
+      tags:
+      - order
+      summary: create a new order
+      operationId: food_deliveryDelivery_nameClientsClient_mailOrdersPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/client_mail_orders_body'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Already exists
+      x-swagger-router-controller: Order
+  /food_delivery/{delivery_name}/restaurants/{restaurant_name}/orders:
+    get:
+      tags:
+      - order
+      summary: List all orders
+      operationId: food_deliveryDelivery_nameRestaurantsRestaurant_nameOrdersGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Order
+    post:
+      tags:
+      - order
+      summary: create a new order
+      operationId: food_deliveryDelivery_nameRestaurantsRestaurant_nameOrdersPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/restaurant_name_orders_body'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Already exists
+      x-swagger-router-controller: Order
+  /food_delivery/{delivery_name}/livreurs/{livreur_mail}/orders:
+    get:
+      tags:
+      - order
+      summary: List all orders
+      operationId: food_deliveryDelivery_nameLivreursLivreur_mailOrdersGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Order
+    post:
+      tags:
+      - order
+      summary: create a new order
+      operationId: food_deliveryDelivery_nameLivreursLivreur_mailOrdersPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/livreur_mail_orders_body'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Already exists
+      x-swagger-router-controller: Order
+  /food_delivery/{delivery_name}/clients/{client_mail}/order/{id_order}:
+    get:
+      tags:
+      - order
+      summary: Get one order
+      operationId: food_deliveryDelivery_nameClientsClient_mailOrderId_orderGET
+      parameters:
+      - name: id
+        in: path
+        description: id de la commande
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: no result found
+      x-swagger-router-controller: Order
+    put:
+      tags:
+      - order
+      summary: update an order
+      operationId: food_deliveryDelivery_nameClientsClient_mailOrderId_orderPUT
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/order_id_order_body'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Error 400
+      x-swagger-router-controller: Order
+    delete:
+      tags:
+      - order
+      summary: Delete an order
+      operationId: food_deliveryDelivery_nameClientsClient_mailOrderId_orderDELETE
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Order
+  /food_delivery/{delivery_name}/livreurs/{livreur_mail}/order/{id_order}:
+    get:
+      tags:
+      - order
+      summary: Get one order
+      operationId: food_deliveryDelivery_nameLivreursLivreur_mailOrderId_orderGET
+      parameters:
+      - name: id
+        in: path
+        description: id de la commande
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: no result found
+      x-swagger-router-controller: Order
+    put:
+      tags:
+      - order
+      summary: update an order
+      operationId: food_deliveryDelivery_nameLivreursLivreur_mailOrderId_orderPUT
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/order_id_order_body_1'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Error 400
+      x-swagger-router-controller: Order
+    delete:
+      tags:
+      - order
+      summary: Delete an order
+      operationId: food_deliveryDelivery_nameLivreursLivreur_mailOrderId_orderDELETE
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Order
+  /food_delivery/{delivery_name}/restaurants/{restaurant_name}/order/{id_order}:
+    get:
+      tags:
+      - order
+      summary: Get one order
+      operationId: food_deliveryDelivery_nameRestaurantsRestaurant_nameOrderId_orderGET
+      parameters:
+      - name: id
+        in: path
+        description: id de la commande
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: no result found
+      x-swagger-router-controller: Order
+    put:
+      tags:
+      - order
+      summary: update an order
+      operationId: food_deliveryDelivery_nameRestaurantsRestaurant_nameOrderId_orderPUT
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/order_id_order_body_2'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Error 400
+      x-swagger-router-controller: Order
+    delete:
+      tags:
+      - order
+      summary: Delete an order
+      operationId: food_deliveryDelivery_nameRestaurantsRestaurant_nameOrderId_orderDELETE
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Order
+  /food_delivery/{delivery_name}/restaurants/{restaurant_name}/meals:
+    get:
+      tags:
+      - meal
+      summary: List all meals
+      operationId: food_deliveryDelivery_nameRestaurantsRestaurant_nameMealsGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Meal
+    post:
+      tags:
+      - meal
+      summary: create a new meal
+      operationId: food_deliveryDelivery_nameRestaurantsRestaurant_nameMealsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/restaurant_name_meals_body'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Already exists
+      x-swagger-router-controller: Meal
+  /food_delivery/{delivery_name}/clients/{client_mail}/commandes/{id_order}/meals:
+    get:
+      tags:
+      - meal
+      summary: List all meals
+      operationId: food_deliveryDelivery_nameClientsClient_mailCommandesId_orderMealsGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Meal
+    post:
+      tags:
+      - meal
+      summary: create a new meal
+      operationId: food_deliveryDelivery_nameClientsClient_mailCommandesId_orderMealsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/id_order_meals_body'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Already exists
+      x-swagger-router-controller: Meal
+  /food_delivery/{delivery_name}/livreurs/{livreur_mail}/commandes/{id_order}/meals:
+    get:
+      tags:
+      - meal
+      summary: List all meals
+      operationId: food_deliveryDelivery_nameLivreursLivreur_mailCommandesId_orderMealsGET
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Meal
+    post:
+      tags:
+      - meal
+      summary: create a new meal
+      operationId: food_deliveryDelivery_nameLivreursLivreur_mailCommandesId_orderMealsPOST
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/id_order_meals_body_1'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Already exists
+      x-swagger-router-controller: Meal
+  /food_delivery/{delivery_name}/restaurants/{restaurant_name}/meals/{meal_name}:
+    get:
+      tags:
+      - meal
+      summary: Get one meal
+      operationId: food_deliveryDelivery_nameRestaurantsRestaurant_nameMealsMeal_nameGET
+      parameters:
+      - name: name
+        in: path
+        description: page of results to return
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: no result found
+      x-swagger-router-controller: Meal
+    put:
+      tags:
+      - meal
+      summary: update a meal
+      operationId: food_deliveryDelivery_nameRestaurantsRestaurant_nameMealsMeal_namePUT
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/meals_meal_name_body'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Error 400
+      x-swagger-router-controller: Meal
+    delete:
+      tags:
+      - meal
+      summary: Delete a meal
+      operationId: food_deliveryDelivery_nameRestaurantsRestaurant_nameMealsMeal_nameDELETE
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Meal
+  /food_delivery/{delivery_name}/clients/{client_mail}/orders/{id_order}/meals/{meal_name}:
+    get:
+      tags:
+      - meal
+      summary: Get one meal
+      operationId: food_deliveryDelivery_nameClientsClient_mailOrdersId_orderMealsMeal_nameGET
+      parameters:
+      - name: name
+        in: path
+        description: page of results to return
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: no result found
+      x-swagger-router-controller: Meal
+    put:
+      tags:
+      - meal
+      summary: update a meal
+      operationId: food_deliveryDelivery_nameClientsClient_mailOrdersId_orderMealsMeal_namePUT
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/meals_meal_name_body_1'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Error 400
+      x-swagger-router-controller: Meal
+    delete:
+      tags:
+      - meal
+      summary: Delete a meal
+      operationId: food_deliveryDelivery_nameClientsClient_mailOrdersId_orderMealsMeal_nameDELETE
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Meal
+  /food_delivery/{delivery_name}/livreurs/{livreur_mail}/orders/{id_order}/meals/{meal_name}:
+    get:
+      tags:
+      - meal
+      summary: Get one meal
+      operationId: food_deliveryDelivery_nameLivreursLivreur_mailOrdersId_orderMealsMeal_nameGET
+      parameters:
+      - name: name
+        in: path
+        description: page of results to return
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: no result found
+      x-swagger-router-controller: Meal
+    put:
+      tags:
+      - meal
+      summary: update a meal
+      operationId: food_deliveryDelivery_nameLivreursLivreur_mailOrdersId_orderMealsMeal_namePUT
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/meals_meal_name_body_2'
+        required: true
+      responses:
+        "200":
+          description: Successful operation
+        "400":
+          description: Error 400
+      x-swagger-router-controller: Meal
+    delete:
+      tags:
+      - meal
+      summary: Delete a meal
+      operationId: food_deliveryDelivery_nameLivreursLivreur_mailOrdersId_orderMealsMeal_nameDELETE
+      responses:
+        "200":
+          description: Successful operation
+      x-swagger-router-controller: Meal
+components:
+  schemas:
+    food_delivery_body:
+      type: object
+      properties:
+        name:
+          type: string
+    food_delivery_name_body:
+      type: object
+      properties:
+        name:
+          type: string
+    name_restaurants_body:
+      type: object
+      properties:
+        name:
+          type: string
+        adresse:
+          type: string
+        numero:
+          type: string
+        type:
+          type: string
+          enum:
+          - FAST FOOD
+          - PIZZA
+          - EPICERIE
+          - HALAL
+          - KEBAB
+          - BOULANGERIE
+    restaurants_name_body:
+      type: object
+      properties:
+        name:
+          type: string
+        adresse:
+          type: string
+        numero:
+          type: string
+        type:
+          type: string
+          enum:
+          - FAST FOOD
+          - PIZZA
+          - EPICERIE
+          - HALAL
+          - KEBAB
+          - BOULANGERIE
+    name_clients_body:
+      type: object
+      properties:
+        email:
+          type: string
+        telephone:
+          type: string
+        name:
+          type: string
+        prenom:
+          type: string
+    clients_client_mail_body:
+      type: object
+      properties:
+        email:
+          type: string
+        telephone:
+          type: string
+        name:
+          type: string
+        prenom:
+          type: string
+    name_livreurs_body:
+      type: object
+      properties:
+        email:
+          type: string
+        telephone:
+          type: string
+        name:
+          type: string
+        prenom:
+          type: string
+    livreurs_livreur_mail_body:
+      type: object
+      properties:
+        email:
+          type: string
+        telephone:
+          type: string
+        name:
+          type: string
+        prenom:
+          type: string
+    client_mail_orders_body:
+      type: object
+      properties:
+        id:
+          type: string
+        /total:
+          type: number
+        date:
+          type: number
+    restaurant_name_orders_body:
+      type: object
+      properties:
+        id:
+          type: string
+        /total:
+          type: number
+        date:
+          type: number
+    livreur_mail_orders_body:
+      type: object
+      properties:
+        id:
+          type: string
+        /total:
+          type: number
+        date:
+          type: number
+    order_id_order_body:
+      type: object
+      properties:
+        id:
+          type: string
+        /total:
+          type: number
+        date:
+          type: number
+    order_id_order_body_1:
+      type: object
+      properties:
+        id:
+          type: string
+        /total:
+          type: number
+        date:
+          type: number
+    order_id_order_body_2:
+      type: object
+      properties:
+        id:
+          type: string
+        /total:
+          type: number
+        date:
+          type: number
+    restaurant_name_meals_body:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        prix:
+          type: number
+    id_order_meals_body:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        prix:
+          type: number
+    id_order_meals_body_1:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        prix:
+          type: number
+    meals_meal_name_body:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        prix:
+          type: number
+    meals_meal_name_body_1:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        prix:
+          type: number
+    meals_meal_name_body_2:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        prix:
+          type: number

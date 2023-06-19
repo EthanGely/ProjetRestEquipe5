@@ -1,0 +1,29 @@
+{
+	"Uber_eat": {
+		"name": "Uber_eat",
+		"clients": [
+			"ethan.gely@etu-univ-grenoble-alpes.fr",
+			"mikail.kilic@etu-univ-grenoble-alpes.fr"
+		],
+		"livreurs" : [
+			"robert@gmail.com"
+		],
+		"restaurants": [
+			"Syfax"
+		]
+	},
+	"delivroo": {
+		"name": "delivroo",
+		"clients": [
+			"loris.reyanud@etu-univ-grenoble-alpes.fr",
+			"remy.albanese@etu-univ-grenoble-alpes.fr"
+		],
+		"livreurs" : [
+			"jean@yopmail.fr"
+		],
+		"restaurants": [
+			"BlaBlaPizza"
+		]
+	}
+
+}

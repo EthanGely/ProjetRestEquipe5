@@ -1,0 +1,21 @@
+{
+	"Robert": {
+		"email": "robert@gmail.com",
+		"telephone": "123456798",
+		"nom": "Truc",
+		"prenom": "Robert",
+		"commandes": [
+			"01"
+		]
+
+	},
+	"Jean": {
+		"email": "jean@yopmail.fr",
+		"telephone": "0223456779",
+		"nom": "De La Fontaine",
+		"prenom": "Jean",
+		"commandes": [
+			"02"
+		]
+	}
+}

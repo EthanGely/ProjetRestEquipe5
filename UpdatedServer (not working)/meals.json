@@ -1,0 +1,14 @@
+{
+	"Tacos": {
+		"name": "Tacos",
+        "description": "C'est bon mais c'est gras",
+		"prix": 20.15
+
+	},
+	"Pizza": {
+		"name": "Pizza",
+        "description": "Une margarita classique",
+		"prix": 7.98
+	}
+
+}

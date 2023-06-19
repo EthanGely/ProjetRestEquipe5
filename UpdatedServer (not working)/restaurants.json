@@ -1,0 +1,23 @@
+{
+	"Syfax": {
+		"name": "Le Syfax",
+        "type": "Tacos",
+		"meals" : [
+			"Tacos"
+		],
+		"orders" : [
+			"01"
+		]
+	},
+	"BlaBlaPizza": {
+		"name": "Bla Bla Pizza",
+        "type": "Pizzeria",
+		"meals" : [
+			"Pizza"
+		],
+		"orders" : [
+			"02"
+		]
+	}
+
+}

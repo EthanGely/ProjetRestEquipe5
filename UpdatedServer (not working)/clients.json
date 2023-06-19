@@ -1,0 +1,35 @@
+{
+	"ethan.gely@etu-univ-grenoble-alpes.fr": {
+		"email": "ethan.gely@etu-univ-grenoble-alpes.fr",
+		"telephone": "0123456789",
+		"nom": "Gely",
+        "prenom": "Ethan",
+		"orders" : [
+			"01"
+		]
+	},
+	"mikail.kilic@etu-univ-grenoble-alpes.fr": {
+		"email": "mikail.kilic@etu-univ-grenoble-alpes.fr",
+		"telephone": "0223456789",
+		"nom": "Kilic",
+		"prenom": "Mikâil",
+		"orders" : []
+	},
+	"loris.reyanud@etu-univ-grenoble-alpes.fr": {
+		"email": "loris.reyanud@etu-univ-grenoble-alpes.fr",
+		"telephone": "0323456789",
+		"nom": "Reynaud",
+		"prenom": "Loris",
+		"orders" : []
+	},
+	"remy.albanese@etu-univ-grenoble-alpes.fr": {
+		"email": "remy.albanese@etu-univ-grenoble-alpes.fr",
+		"telephone": "0423456789",
+		"nom": "Albanese",
+		"prenom": "Rémy",
+		"orders" : [
+			"02"
+		]
+	}
+
+}
