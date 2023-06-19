@@ -1,6 +1,6 @@
 'use strict';
 const restaurants = require('../restaurants.json');
-const foodPlateforms = require("../foodPlateforms.json");
+const livreurs = require("../livreurs.json");
 
 /**
  * List all restaurants
@@ -9,7 +9,7 @@ const foodPlateforms = require("../foodPlateforms.json");
  **/
 exports.restaurantGET = function() {
   return new Promise(function(resolve, reject) {
-    resolve();
+    resolve(restaurants);
   });
 }
 
@@ -22,7 +22,13 @@ exports.restaurantGET = function() {
  **/
 exports.restaurantNameDELETE = function(name) {
   return new Promise(function(resolve, reject) {
-    resolve();
+    const foundItem = restaurants[name];
+    if(foundItem){
+      delete restaurants[name];
+      resolve(name + " à bien était supprimer");
+    }else{
+      resolve("erreur nom de food delivery invalide");
+    }
   });
 }
 
@@ -53,7 +59,18 @@ exports.restaurantNameGET = function(name) {
  **/
 exports.restaurantNamePUT = function(body) {
   return new Promise(function(resolve, reject) {
-    resolve();
+    const foundItem = restaurants[body.name];
+
+    if (foundItem) {
+      foundItem.name = body.name;
+      foundItem.type = body.type;
+
+      restaurants[foundItem.name] = foundItem;
+
+      resolve(foundItem);
+    } else {
+      reject(new Error('Not found.'));
+    }
   });
 }
 
@@ -66,7 +83,14 @@ exports.restaurantNamePUT = function(body) {
  **/
 exports.restaurantPOST = function(body) {
   return new Promise(function(resolve, reject) {
-    resolve();
+    const newRestaurant = {
+      name: body.name,
+      type: body.type,
+    };
+
+    restaurants[newRestaurant.name] = newRestaurant;
+
+    resolve(newRestaurant);
   });
 }
 

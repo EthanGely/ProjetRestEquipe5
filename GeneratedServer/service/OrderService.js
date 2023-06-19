@@ -1,5 +1,7 @@
 'use strict';
-
+const orders = require('../orders.json');
+const meals = require("../meals.json");
+const clients = require("../clients.json");
 
 /**
  * List all orders
@@ -18,9 +20,15 @@ exports.orderGET = function() {
  *
  * no response value expected for this operation
  **/
-exports.orderNameDELETE = function() {
+exports.orderNameDELETE = function(id) {
   return new Promise(function(resolve, reject) {
-    resolve();
+    const foundItem = orders[id];
+    if(foundItem){
+      delete orders[id];
+      resolve(id + " à bien était supprimer");
+    }else{
+      resolve("Not found");
+    }
   });
 }
 
@@ -33,7 +41,12 @@ exports.orderNameDELETE = function() {
  **/
 exports.orderNameGET = function(id) {
   return new Promise(function(resolve, reject) {
-    resolve();
+    const foundItem = orders[id];
+    if (foundItem) {
+      resolve(foundItem);
+    } else {
+      resolve(["pas trouvé"]);
+    }
   });
 }
 
@@ -46,7 +59,19 @@ exports.orderNameGET = function(id) {
  **/
 exports.orderNamePUT = function(body) {
   return new Promise(function(resolve, reject) {
-    resolve();
+    const foundItem = orders[body.id]
+
+    if (foundItem) {
+      foundItem.id = body.id;
+      foundItem.total = body.total;
+      foundItem.date = body.date;
+
+      orders[foundItem.id] = foundItem;
+
+      resolve(foundItem);
+    } else {
+      reject(new Error('Not found.'));
+    }
   });
 }
 
@@ -59,7 +84,15 @@ exports.orderNamePUT = function(body) {
  **/
 exports.orderPOST = function(body) {
   return new Promise(function(resolve, reject) {
-    resolve();
+    const newOrder = {
+      id: body.id,
+      total: body.total,
+      date: body.date,
+    };
+
+    orders[newOrder.name] = newOrder;
+
+    resolve(newOrder);
   });
 }
 

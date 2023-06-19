@@ -1,14 +1,13 @@
 'use strict';
-
+const clients = require('../clients.json');
 
 /**
  * List all clients
  *
- * no response value expected for this operation
  **/
 exports.clientGET = function() {
   return new Promise(function(resolve, reject) {
-    resolve();
+    resolve(clients);
   });
 }
 
@@ -20,7 +19,13 @@ exports.clientGET = function() {
  **/
 exports.clientNameDELETE = function() {
   return new Promise(function(resolve, reject) {
-    resolve();
+    const foundItem = clients[name];
+    if(foundItem){
+      delete clients[name];
+      resolve(name + " à bien était supprimer");
+    }else{
+      resolve("not found");
+    }
   });
 }
 
@@ -33,7 +38,12 @@ exports.clientNameDELETE = function() {
  **/
 exports.clientNameGET = function(email) {
   return new Promise(function(resolve, reject) {
-    resolve();
+    const foundItem = clients[name];
+    if (foundItem) {
+      resolve(foundItem);
+    } else {
+      resolve("Not found");
+    }
   });
 }
 
@@ -46,7 +56,20 @@ exports.clientNameGET = function(email) {
  **/
 exports.clientNamePUT = function(body) {
   return new Promise(function(resolve, reject) {
-    resolve();
+    const foundItem = clients[body.email]
+
+    if (foundItem) {
+      foundItem.email = body.email;
+      foundItem.telephone = body.telephone;
+      foundItem.nom = body.nom;
+      foundItem.prenom = body.prenom;
+
+      clients[foundItem.email] = foundItem;
+
+      resolve(foundItem);
+    } else {
+      reject(new Error('Not found.'));
+    }
   });
 }
 
@@ -59,7 +82,16 @@ exports.clientNamePUT = function(body) {
  **/
 exports.clientPOST = function(body) {
   return new Promise(function(resolve, reject) {
-    resolve();
+    const newClient = {
+      email: body.email,
+      telephone: body.telephone,
+      nom: body.nom,
+      prenom: body.prenom,
+    };
+
+    clients[newClient.email] = newClient;
+
+    resolve(newClient);
   });
 }
 

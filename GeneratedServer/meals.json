@@ -1,0 +1,14 @@
+{
+	"Bigmac": {
+		"name": "Big Mac",
+        "description": "Le fameux",
+		"prix": 20.15
+
+	},
+	"Whopper": {
+		"name": "Whopper",
+        "description": "Meilleur que le Big Mac",
+		"prix": 7.98
+	}
+
+}

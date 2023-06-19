@@ -1,12 +1,10 @@
 {
 	"Uber_eat": {
-		"name": "Uber_eat",
-        "test": "1"
+		"name": "Uber_eat"
 
 	},
 	"delivroo": {
-		"name": "delivroo",
-        "test": "2"
+		"name": "delivroo"
 	}
 
 }
